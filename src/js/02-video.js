@@ -12,16 +12,12 @@ const onPlayTimeCheker = (e) => {
         localStorage.setItem(KEY_STORAGE, JSON.stringify(e.seconds))
 }
 
-
 playerWindow.on('timeupdate', throttle(onPlayTimeCheker, 1000));
 
-const parsedTimeFromLS = JSON.parse(localStorage.getItem(KEY_STORAGE));
-    
-playerWindow.setCurrentTime(parsedTimeFromLS);
-
 try {
-    playerWindow.setCurrentTime(parsedTimeFromLS)
+    const parsedTimeFromLS = JSON.parse(localStorage.getItem(KEY_STORAGE));
+    playerWindow.setCurrentTime(parsedTimeFromLS);
 } catch (error) {
-    
+    console.log(error.message)
 };
     
