@@ -19,11 +19,12 @@ galleryRef.innerHTML = galleryItems
   .join("");
 
 
+  
   let lightbox = new SimpleLightbox(`.gallery__item`, {
     captionsData: `alt`,
     captionDelay: 250,
     captionPosition: "bottom",
   });
 
-  
+
 console.log(galleryItems);
