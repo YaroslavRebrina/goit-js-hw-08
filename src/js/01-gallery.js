@@ -25,4 +25,5 @@ galleryRef.innerHTML = galleryItems
     captionPosition: "bottom",
   });
 
+  
 console.log(galleryItems);
