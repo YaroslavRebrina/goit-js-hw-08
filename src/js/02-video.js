@@ -9,13 +9,13 @@ const playerWindow = new player(iframe);
 
 
 const onPlayTimeCheker = (e) => {
-        localStorage.setItem(KEY_STORAGE, JSON.stringify(e.seconds))
+        localStorage.setItem(KEY_STORAGE, e.seconds)
 }
 
 playerWindow.on('timeupdate', throttle(onPlayTimeCheker, 1000));
 
 try {
-    const parsedTimeFromLS = JSON.parse(localStorage.getItem(KEY_STORAGE));
+    const parsedTimeFromLS = localStorage.getItem(KEY_STORAGE) || null;
     playerWindow.setCurrentTime(parsedTimeFromLS);
 } catch (error) {
     console.log(error.message)
