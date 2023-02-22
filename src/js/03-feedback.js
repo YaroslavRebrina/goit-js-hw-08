@@ -7,23 +7,20 @@ const formRef = document.querySelector('.feedback-form');
 let data = {};
 
 const automaticFiller = () => {
-  const incomingData = localStorage.getItem(STORAGE_KEY);
+ const incomingData = localStorage.getItem(STORAGE_KEY);
 
-  if (incomingData) {
-    const parseData = JSON.parse(incomingData);
-    try {
-        formKeys = Object.keys(parseData);
-        console.log(formKeys)
-        formKeys.map(element => {
-            document.querySelector(`[name='${element}']`).value =
-                parseData[element];
-        });
-      
+ if (incomingData) {
+ data = JSON.parse(incomingData);
+ try {
+ const formKeys = Object.entries(data);
+ formKeys.forEach(([name, value]) => {
+ formRef[name].value = value
+      });
     } catch (error) {
-      console.log(error.message);
+ console.log(error.message);
     }
   }
-};
+}; 
 
 automaticFiller();
 

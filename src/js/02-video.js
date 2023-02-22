@@ -15,7 +15,7 @@ const onPlayTimeCheker = (e) => {
 playerWindow.on('timeupdate', throttle(onPlayTimeCheker, 1000));
 
 try {
-    const parsedTimeFromLS = localStorage.getItem(KEY_STORAGE) || null;
+    const parsedTimeFromLS = localStorage.getItem(KEY_STORAGE) || 0;
     playerWindow.setCurrentTime(parsedTimeFromLS);
 } catch (error) {
     console.log(error.message)
